@@ -89,3 +89,6 @@ If everything worked fine, you should now be able to access the app by visiting
 
 - `kubens`: to switch and pin the k8s namespaces (so that you don't have to always use the `-n` argument in `kubectl`
 - `kubetail`: to tail logs for multiple pods at once (useful when you have replicas)
+- `watch`: to observe some command without having to execute it manually over and over again
+
+To install all of these utilities, please use your OS package manager (something like `brew` for mac or `choco` for Windows).
