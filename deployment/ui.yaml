@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ui
+  name: ui
+  namespace: k8s-seminar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ui
+    spec:
+      containers:
+      - image: k8s-seminar-ui:1.0.0
+        imagePullPolicy: Never  # to use local image
+        name: k8s-seminar-ui
+        resources: {}
+        ports:
+        - containerPort: 80

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+  namespace: k8s-seminar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: k8s-seminar-api:1.0.0
+        imagePullPolicy: Never  # to use local image
+        name: k8s-seminar-api
+        resources: {}
+        ports:
+        - containerPort: 8080
